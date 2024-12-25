@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - TechBlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Signup for TechBlog</h1>
+        </header>
+        <form id="signupForm">
+            <label class="validateLabels" for="newUsername">Admin Name</label><br>
+            <input type="text" id="newUsername" required><br><br>
+
+            <label class="validateLabels" for="newPassword">Password</label><br>
+            <input type="password" id="newPassword" required><br><br>
+
+            <label class="validateLabels" for="confirmPassword">Confirm Password</label><br>
+            <input type="password" id="confirmPassword" required><br><br>
+
+            <input type="submit" value="Signup">
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Check if the passwords match
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if the username already exists
+            if (users.find(u => u.username === newUsername)) {
+                alert('Username already exists!');
+            } else {
+                users.push({ username: newUsername, password: newPassword });
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Signup successful!');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

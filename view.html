@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Article - TechBlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Article Details</h1>
+        </header>
+        <button id="logout">Logout</button>
+        <div id="articleDetails"></div>
+        <p><a href="index.html">Back to Homepage</a></p>
+    </div>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', function() {
+            sessionStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        });
+
+        // Display article details
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        const articles = JSON.parse(localStorage.getItem('articles')) || [];
+
+        const article = articles[articleId];
+
+        if (article) {
+            document.getElementById('articleDetails').innerHTML = `
+                <h2>${article.title}</h2>
+                <p><strong>Author:</strong> ${article.author}</p>
+                <p>${article.content}</p>
+            `;
+        } else {
+            document.getElementById('articleDetails').innerHTML = '<p>Article not found.</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TechBlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TechBlog Login</h1>
+        </header>
+        <form id="loginForm">
+            <label class="validateLabels" for="username">Admin Name</label><br>
+            <input type="text" id="username" required><br><br>
+
+            <label class="validateLabels" for="password">Password</label><br>
+            <input type="password" id="password" required><br><br>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Fetch users from localStorage or a JSON file
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                alert('Login successful!');
+                sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>

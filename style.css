@@ -1,0 +1,211 @@
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e88e5;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+header {
+    background-color: #e14300;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.validateLabels{
+    margin: 10px auto 5px;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    padding: 10px;
+    margin: 5px auto 20px; /* margin: auto will center the element horizontally */
+    border: 1px solid #f4a3a3;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f0fab4;
+    width: 50%; /* width is already set to 50%, so it's centered */
+    display: block; /* Ensures the element behaves as a block-level element */
+}
+
+
+input[type="text"]{
+    padding: 10px;
+    margin: 5px auto 20px;
+    border: 1px solid #f4a3a3;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f0fab4;
+    width:50%;
+    display: block; 
+}
+
+#title{
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #f4a3a3;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    width: 100%;  
+}
+textarea {
+    padding: 10px;
+    margin: 5px 0 20px;
+    height: 250px;
+    border: 1px solid #f4a3a3;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+input[type="submit"] {
+    padding: 15px 20px;
+    background-color: #de5921;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #d0460b;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #cde8ef;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+}
+
+ul li a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#logout {
+    position: fixed;
+    top: 4px;
+    right: 20px;
+    background-color: #e14300;
+    color: white;
+    font-size: 1rem;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#logout:hover {
+    background-color: #ba3a03;
+    transform: translateY(-2px);
+}
+
+.updateButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Space between buttons */
+}
+
+/* Change background color on hover */
+.updateButton:hover {
+    background-color: #25812a;
+}
+
+/* Style for the delete button */
+.deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Space between buttons */
+}
+
+/* Change background color on hover for delete button */
+.deleteButton:hover {
+    background-color: #e60000;
+}
+
+.actions {
+    margin-left: 85%;
+}

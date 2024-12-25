@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Edit Article - TechBlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="formTitle">Create a New Article</h1>
+        </header>
+        <button id="logout">Logout</button>
+        <form id="createArticleForm">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" required><br><br>
+
+            <label for="content">Content:</label><br>
+            <textarea id="content" rows="10" required></textarea><br><br>
+
+            <input type="submit" value="Publish">
+        </form>
+        <p><a href="index.html">Back to Homepage</a></p>
+    </div>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', function() {
+            sessionStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        });
+
+        // Check if editing an existing article
+        const editArticleId = localStorage.getItem('editArticleId');
+        if (editArticleId !== null) {
+            const articles = JSON.parse(localStorage.getItem('articles')) || [];
+            const article = articles[editArticleId];
+            if (article) {
+                document.getElementById('formTitle').textContent = 'Edit Article';
+                document.getElementById('title').value = article.title;
+                document.getElementById('content').value = article.content;
+            }
+        }
+
+        // Handle form submission (create or update article)
+        document.getElementById('createArticleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
+            if (!loggedInUser) {
+                alert('You must be logged in to create or edit an article.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const articles = JSON.parse(localStorage.getItem('articles')) || [];
+
+            if (editArticleId !== null) {
+                // Update existing article
+                articles[editArticleId] = { title, content, author: loggedInUser.username };
+                localStorage.setItem('articles', JSON.stringify(articles));
+                alert('Article updated successfully!');
+                localStorage.removeItem('editArticleId');
+                window.location.href = 'index.html';
+            } else {
+                // Create new article
+                articles.push({ title, content, author: loggedInUser.username });
+                localStorage.setItem('articles', JSON.stringify(articles));
+                alert('Article published successfully!');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
