@@ -28,7 +28,7 @@
         // Logout functionality
         document.getElementById('logout').addEventListener('click', function() {
             sessionStorage.removeItem('loggedInUser');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
 
         // Check if editing an existing article
@@ -53,7 +53,7 @@
 
             if (!loggedInUser) {
                 alert('You must be logged in to create or edit an article.');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
                 return;
             }
 
@@ -65,13 +65,13 @@
                 localStorage.setItem('articles', JSON.stringify(articles));
                 alert('Article updated successfully!');
                 localStorage.removeItem('editArticleId');
-                window.location.href = 'index.html';
+                window.location.href = 'home.html';
             } else {
                 // Create new article
                 articles.push({ title, content, author: loggedInUser.username });
                 localStorage.setItem('articles', JSON.stringify(articles));
                 alert('Article published successfully!');
-                window.location.href = 'index.html';
+                window.location.href = 'home.html';
             }
         });
     </script>
