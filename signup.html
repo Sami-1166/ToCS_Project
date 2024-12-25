@@ -23,7 +23,7 @@
 
             <input type="submit" value="Signup">
         </form>
-        <p>Already have an account? <a href="login.html">Login</a></p>
+        <p>Already have an account? <a href="index.html">Login</a></p>
     </div>
 
     <script>
@@ -49,7 +49,7 @@
                 users.push({ username: newUsername, password: newPassword });
                 localStorage.setItem('users', JSON.stringify(users));
                 alert('Signup successful!');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             }
         });
     </script>
