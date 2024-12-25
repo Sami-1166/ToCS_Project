@@ -13,14 +13,14 @@
         </header>
         <button id="logout">Logout</button>
         <div id="articleDetails"></div>
-        <p><a href="index.html">Back to Homepage</a></p>
+        <p><a href="home.html">Back to Homepage</a></p>
     </div>
 
     <script>
         // Logout functionality
         document.getElementById('logout').addEventListener('click', function() {
             sessionStorage.removeItem('loggedInUser');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
 
         // Display article details
