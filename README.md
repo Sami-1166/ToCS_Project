@@ -29,4 +29,4 @@ The project is deployed on an EC2 instance running Apache, and a Jenkins pipelin
    Clone the repository containing the blog project files to your local machine or server.
 
    ```bash
-   git clone https://github.com/Sami-1166/Assignment4.git
+   https://github.com/Sami-1166/ToCS_Project.git
