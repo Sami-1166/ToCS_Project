@@ -27,14 +27,6 @@ pipeline {
                 )
             }
         }
-        stage('Set Default Page') {
-            steps {
-                // Ensure login.html is served by default
-                sh '''
-                    sudo rm /var/www/html/index.html
-                    sudo ln -s /var/www/html/login.html /var/www/html/index.html
-                '''
-            }
-        }
+
     }
-}
+ }
